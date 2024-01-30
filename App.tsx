@@ -1,6 +1,8 @@
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Pressable, TextInput, View, Text, ScrollView, SafeAreaView } from 'react-native';
+import "react-native-get-random-values";
+import { v1 as uuidv1 } from 'uuid';
 
 import TodoItem from './components/TodoItem';
 import { ITodoItem } from './types/todo'
@@ -25,7 +27,7 @@ export default function App() {
 
   const addNewItem = () => {
     const NewItem = {
-      id: Math.random(),
+      id: uuidv1(),
       name: value,
       checked: false
     }
