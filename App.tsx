@@ -1,16 +1,18 @@
 
 import React, { useState } from 'react';
-import { Pressable, TextInput, View, Text, ScrollView, SafeAreaView } from 'react-native';
+import { ScrollView, SafeAreaView } from 'react-native';
 import "react-native-get-random-values";
 import { v1 as uuidv1 } from 'uuid';
 
+import InputComponent from './components/InputComponent';
 import TodoItem from './components/TodoItem';
-import { ITodoItem } from './types/todo'
-import { styles } from './styles/App.style'
 
+import { TodoItem as TodoItemType } from './types/todo';
+
+import { styles } from './styles/App.style';
 
 export default function App() {
-  const [todos, setTodos] = useState<ITodoItem[]>([
+  const [todos, setTodos] = useState<TodoItemType[]>([
     {
       id: 0,
       name: 'todo 1',
@@ -21,22 +23,20 @@ export default function App() {
       name: 'todo 2',
       checked: false
     }
-  ])
+  ]);
 
-  const [value, setValue] = useState<string>('')
-
-  const addNewItem = () => {
+  const addNewItem = (value: string) => {
     const NewItem = {
       id: uuidv1(),
       name: value,
       checked: false
-    }
-    setTodos(todos => [...todos, NewItem])
-    setValue('')
+    };
+
+    setTodos(todos => [...todos, NewItem]);
   }
 
   const deleteItem = (id: number) => {
-    setTodos(todos.filter(i => i.id !== id))
+    setTodos(todos.filter(i => i.id !== id));
   }
 
   const setCheckedItem = (id: number, state: boolean) => {
@@ -47,16 +47,10 @@ export default function App() {
     setTodos(newTodos);
   }
 
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollView}>
-        <View style={styles.wrapper}>
-          <TextInput style={styles.input} value={value} onChangeText={item => setValue(item)} placeholder='add todo'/>
-          <Pressable style={styles.button} onPress={addNewItem}>
-            <Text>Add new todo</Text>
-          </Pressable>
-        </View>
+        <InputComponent addNewItem={addNewItem} />
         {
           todos.map((el) => (
             <TodoItem el={el} key={el.id} deleteItem={deleteItem} setCheckedItem={setCheckedItem} />
@@ -66,10 +60,3 @@ export default function App() {
     </SafeAreaView>
   );
 }
-
-
-
-
-
-
-

@@ -1,10 +1,12 @@
 import React from "react";
 import { Pressable, View, Text } from "react-native";
 import AnimatedCheckbox from 'react-native-checkbox-reanimated';
-import { ITodoItemProps } from '../types/todo'
+
+import { TodoItemProps } from '../types/todo'
+
 import { styles } from '../styles/TodoItem.style';
 
-export default function TodoItem({ el, deleteItem, setCheckedItem }: ITodoItemProps) {
+export default function TodoItem({ el, deleteItem, setCheckedItem }: TodoItemProps) {
 
     const setCheckedItemHandler = () => {
         setCheckedItem(el.id, !el.checked)
