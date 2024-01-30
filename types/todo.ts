@@ -8,7 +8,7 @@ export interface TodoItem {
 export interface TodoItemProps {
     el: TodoItem,
     deleteItem: (id: number) => void,
-    setCheckedItem: (id: number, checked: boolean) => void,
+    markItemAsChecked: (id: number, checked: boolean) => void,
 }
 
 

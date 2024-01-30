@@ -6,10 +6,10 @@ import { TodoItemProps } from '../types/todo'
 
 import { styles } from '../styles/TodoItem.style';
 
-export default function TodoItem({ el, deleteItem, setCheckedItem }: TodoItemProps) {
+export default function TodoItem({ el, deleteItem, markItemAsChecked }: TodoItemProps) {
 
     const setCheckedItemHandler = () => {
-        setCheckedItem(el.id, !el.checked)
+        markItemAsChecked(el.id, !el.checked)
     }
 
     const deleteItemHandler = () => {

@@ -11,7 +11,7 @@ import { styles } from './styles/App.style';
 import useTodo from './hooks/useTodo';
 
 export default function App() {
-  const { todos, addNewItem, deleteItem, setCheckedItem } = useTodo();
+  const { todos, addNewItem, deleteItem, markItemAsChecked } = useTodo();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -19,7 +19,7 @@ export default function App() {
         <InputComponent addNewItem={addNewItem} />
         {
           todos.map((el) => (
-            <TodoItem el={el} key={el.id} deleteItem={deleteItem} setCheckedItem={setCheckedItem} />
+            <TodoItem el={el} key={el.id} deleteItem={deleteItem} markItemAsChecked={markItemAsChecked} />
           ))
         }
       </ScrollView>
