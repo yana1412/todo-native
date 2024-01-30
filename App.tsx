@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import { Pressable, TextInput, View, Text, ScrollView, SafeAreaView } from 'react-native';
 
-import TodoItem from './components/ToDoItem';
-import { ITodoItem } from './types/toDo'
+import TodoItem from './components/TodoItem';
+import { ITodoItem } from './types/todo'
 import { styles } from './styles/App.style'
 
 
