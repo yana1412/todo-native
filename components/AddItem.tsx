@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Pressable, TextInput, View, Text } from 'react-native';
 
-import { InputComponentProps } from '../types/todo';
+import { AddItemProps } from '../types/todo';
 
-import { styles } from '../styles/InputComponent.style';
+import { styles } from '../styles/AddItem.style';
 
-export default function InputComponent({ addNewItem }: InputComponentProps) {
+export default function AddItem({ addNewItem }: AddItemProps) {
     const [value, setValue] = useState<string>('');
 
     const onPressHandler = () => {

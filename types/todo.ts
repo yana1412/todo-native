@@ -12,6 +12,6 @@ export interface TodoItemProps {
 }
 
 
-export interface InputComponentProps {
+export interface AddItemProps {
     addNewItem: (value: string) => void,
 }

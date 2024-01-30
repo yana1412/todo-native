@@ -3,7 +3,7 @@ import React from 'react';
 import { ScrollView, SafeAreaView } from 'react-native';
 import "react-native-get-random-values";
 
-import InputComponent from './components/InputComponent';
+import AddItem from './components/AddItem';
 import TodoItem from './components/TodoItem';
 
 import { styles } from './styles/App.style';
@@ -16,7 +16,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollView}>
-        <InputComponent addNewItem={addNewItem} />
+        <AddItem addNewItem={addNewItem} />
         {
           todos.map((el) => (
             <TodoItem el={el} key={el.id} deleteItem={deleteItem} markItemAsChecked={markItemAsChecked} />
