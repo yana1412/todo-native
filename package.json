@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@tamagui/config": "^1.88.17",
     "@types/react": "~18.2.45",
     "expo": "~50.0.4",
     "expo-status-bar": "~1.11.1",
@@ -16,8 +17,10 @@
     "react-native": "0.73.2",
     "react-native-checkbox-reanimated": "^0.1.1",
     "react-native-get-random-values": "^1.10.0",
+    "tamagui": "^1.88.17",
     "typescript": "^5.3.0",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "@expo/metro-runtime": "~3.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
