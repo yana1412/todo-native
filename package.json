@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.1.1",
-    "@tamagui/config": "^1.88.17",
-    "@tamagui/shorthands": "^1.88.18",
+    "@tamagui/config": "^1.76.0",
+    "@tamagui/shorthands": "^1.76.0",
     "@types/react": "~18.2.45",
     "expo": "~50.0.4",
     "expo-status-bar": "~1.11.1",
