@@ -3,7 +3,7 @@ import React from 'react';
 import { ScrollView, SafeAreaView } from 'react-native';
 import "react-native-get-random-values";
 import '@tamagui/core/reset.css'
-import { TamaguiProvider } from 'tamagui'
+import { TamaguiProvider} from 'tamagui'
 import tamaguiConfig from './tamagui.config'
 
 // import { Button, Text } from 'tamagui'
@@ -11,7 +11,7 @@ import tamaguiConfig from './tamagui.config'
 import AddItem from './components/AddItem';
 import TodoItem from './components/TodoItem';
 
-import { styles } from './styles/App.style';
+import { styles } from './styles/App.styled';
 
 import useTodo from './hooks/useTodo';
 

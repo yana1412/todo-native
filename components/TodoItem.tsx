@@ -4,7 +4,7 @@ import AnimatedCheckbox from 'react-native-checkbox-reanimated';
 
 import { TodoItemProps } from '../types/todo'
 
-import { styles } from '../styles/TodoItem.style';
+import { styles } from '../styles/TodoItem.styled';
 
 export default function TodoItem({ el, deleteItem, markItemAsChecked }: TodoItemProps) {
 

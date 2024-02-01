@@ -1,18 +1,17 @@
-import { StyleSheet, TextInput } from 'react-native';
+import { TextInput, View } from 'react-native';
 import { Button, Text, styled } from 'tamagui';
 import { color, radius, size } from '@tamagui/themes'
 
 
+export const ViewStyled = styled(View, {
+    name: 'View',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
+    marginBottom: 30,
+})
 
-export const styles = StyleSheet.create({
-    wrapper: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap:10,
-        marginBottom: 30,
-    },
-});
 
 export const ButtonStyled = styled(Button, {
     backgroundColor: color.blue10Dark,
