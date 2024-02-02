@@ -2,6 +2,8 @@ export interface TodoItem {
     id: number,
     name: string,
     checked: boolean ,
+    description:string,
+    date:number
 }
 
 
@@ -13,5 +15,5 @@ export interface TodoItemProps {
 
 
 export interface AddItemProps {
-    addNewItem: (value: string) => void,
+    addNewItem: (name,description: string, date:number) => void,
 }

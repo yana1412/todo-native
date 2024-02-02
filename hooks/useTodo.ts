@@ -8,23 +8,22 @@ const initialValue = [
     {
         id: 0,
         name: 'todo 1',
-        checked: false
+        checked: false,
+        description:'description',
+        date:0 
     },
-    {
-        id: 1,
-        name: 'todo 2',
-        checked: false
-    }
 ]
 
 export default function useTodo() {
     const [todos, setTodos] = useState<TodoItem[]>(initialValue);
     
-    const addNewItem = (value: string) => {
+    const addNewItem = (name, description: string ,date:number) => {
         const newItem = {
             id: uuidv1(),
-            name: value,
-            checked: false
+            name: name,
+            checked: false,
+            description:description,
+            date:date
         };
     
         setTodos(todos => [...todos, newItem]);

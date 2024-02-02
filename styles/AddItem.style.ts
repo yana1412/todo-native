@@ -5,7 +5,7 @@ import { color, radius, size } from '@tamagui/themes'
 
 
 export const styles = StyleSheet.create({
-    wrapper: {
+    container: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
@@ -13,6 +13,8 @@ export const styles = StyleSheet.create({
         marginBottom: 30,
     },
 });
+
+
 
 export const ButtonStyled = styled(Button, {
     backgroundColor: color.blue10Dark,
@@ -26,10 +28,12 @@ export const TextStyled = styled(Text, {
     color: color.orange1Light,
 })
 
-export const TextInputStaled = styled(TextInput, {
+export const TextInputStyled = styled(TextInput, {
     padding: 10,
-    borderColor: 'red',
+    borderColor: 'blue',
     width: 210,
     height: 50,
     borderWidth: 1,
+    marginBottom:15,
+    borderRadius:10,
 })

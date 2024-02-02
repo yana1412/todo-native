@@ -8,12 +8,11 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between',
         gap: 20,
         alignItems: 'center',
-        width: 320,
-        height: 50,
-        borderColor: 'red',
+        width: 350,
         borderWidth: 1,
-        paddingRight: 20,
-        paddingLeft: 20,
+        borderColor:'blue',
+        borderRadius:10,
+        padding:20,
         marginBottom: 20,
     },
     checkbox: {
@@ -21,12 +20,18 @@ export const styles = StyleSheet.create({
         height: 30,
     },
     text: {
-        fontSize: 16,
+        fontSize: 18,
+        marginBottom:5,
+        
     },
     delete: {
         borderRadius: 5,
         padding: 10,
-        backgroundColor: 'red'
+        backgroundColor: 'blue',
+    },
+    btnText :{
+        color:'#ffff',
+        fontSize: 18,
     }
 });
 

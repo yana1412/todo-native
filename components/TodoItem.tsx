@@ -26,9 +26,14 @@ export default function TodoItem({ el, deleteItem, markItemAsChecked }: TodoItem
                     checkmarkColor="#ffffff"
                     boxOutlineColor="#4444ff" />
             </Pressable>
-            <Text style={styles.text}>{el.name}</Text>
+            <View>
+                <Text style={styles.text}>{el.name}</Text>
+                <Text style={styles.text}>{el.description}</Text>
+                <Text style={styles.text}>{el.date}</Text>
+            </View>
+
             <Pressable style={styles.delete} onPress={deleteItemHandler}>
-                <Text style={styles.text}>delete</Text>
+                <Text style={styles.btnText}>delete</Text>
             </Pressable>
         </View>
     )

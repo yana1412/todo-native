@@ -11,6 +11,7 @@ import tamaguiConfig from './tamagui.config'
 import AddItem from './components/AddItem';
 import TodoItem from './components/TodoItem';
 
+
 import { styles } from './styles/App.style';
 
 import useTodo from './hooks/useTodo';
@@ -21,7 +22,7 @@ export default function App() {
   return (
     <TamaguiProvider config={tamaguiConfig}>
       <SafeAreaView style={styles.container}>
-        <ScrollView contentContainerStyle={styles.scrollView}>
+        <ScrollView contentContainerStyle={styles.scrollView}  keyboardShouldPersistTaps={'handled'}>
           <AddItem addNewItem={addNewItem} />
           {
             todos.map((el) => (
@@ -30,6 +31,7 @@ export default function App() {
           }
         </ScrollView>
       </SafeAreaView>
+
 
       {/* <Button>
         <Text>My button</Text>
