@@ -4,20 +4,20 @@ import { v1 as uuidv1 } from 'uuid';
 
 import { TodoItem } from '../types/todo';
 
-const initialValue = [
-    {
-        id: 0,
-        name: 'todo 1',
-        checked: false,
-        description:'description',
-        date:0 
-    },
-]
+// const initialValue = [
+//     {
+//         id: 0,
+//         name: 'todo 1',
+//         checked: false,
+//         description:'description',
+//         date:0 
+//     },
+// ]
 
 export default function useTodo() {
-    const [todos, setTodos] = useState<TodoItem[]>(initialValue);
+    const [todos, setTodos] = useState<TodoItem[]>([]);
     
-    const addNewItem = (name, description: string ,date:number) => {
+    const addNewItem = (name: string, description: string ,date: string) => {
         const newItem = {
             id: uuidv1(),
             name: name,

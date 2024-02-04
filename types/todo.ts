@@ -1,9 +1,9 @@
 export interface TodoItem {
-    id: number,
-    name: string,
-    checked: boolean ,
-    description:string,
-    date:number
+    id: number;
+    name: string;
+    checked: boolean;
+    description: string;
+    date: string;
 }
 
 
@@ -15,5 +15,11 @@ export interface TodoItemProps {
 
 
 export interface AddItemProps {
-    addNewItem: (name,description: string, date:number) => void,
+    addNewItem: (name: string, description: string, date: string) => void,
+}
+
+export interface formValues {
+    name: string;
+    description: string;
+    date: string;
 }

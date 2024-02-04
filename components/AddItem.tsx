@@ -1,53 +1,89 @@
-import React, { useState } from 'react';
-import { TextInput, View, Text } from 'react-native';
+import React from 'react';
+import { View, Text } from 'react-native';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 
-import { AddItemProps } from '../types/todo';
+import { AddItemProps, formValues } from '../types/todo';
 
 import { styles } from '../styles/AddItem.style';
-
-// import { Text } from 'tamagui'
 import { ButtonStyled, TextStyled, TextInputStyled } from '../styles/AddItem.style';
 
 export default function AddItem({ addNewItem }: AddItemProps) {
-    const [name, setName] = useState<string>('');
-    const [description, setDescription] = useState<string>('');
-    const [date, setDate] = useState<number>(0);
-
-    const [nameDirty, setNameDirty] = useState<boolean>(false);
-    const [descriptionDirty, setDescriptionDirty] = useState<boolean>(false);
-    const [dateDirty, setDateDirty] = useState<boolean>(false);
-
-    const [nameError, setNameError] = useState('поле не може бути пустим');
-    const [descriptionError, setDescriptionError] = useState('поле не може бути пустим');
-    const [dateError, setDateError] = useState('поле не може бути пустим');
-
-    const onPressHandler = () => {
-        if (name && description && date) {
-            addNewItem(name, description, date);
-            setName('');
-            setDescription('');
-            setDate(0)
-        }
+    const onPressHandler = (values: formValues, { resetForm }: any) => {
+        addNewItem(values.name, values.description, values.date);
+        resetForm({ values: initialValues });
     }
 
-    return (
-        <View style={styles.container}>
-            <View>
-                {(nameDirty && nameError && <Text>{nameError}</Text>
+    const initialValues: formValues = {
+        name: '',
+        description: '',
+        date: '',
+    }
 
-                )}
-                <TextInputStyled value={name} onChangeText={item => setName(item)} placeholder='add todo' />
-                <TextInputStyled value={description} onChangeText={item => setDescription(item)} placeholder='add description' />
-                <TextInputStyled value={date} onChangeText={item => setDate(item)} placeholder='add date' />
-            </View>
-            {/* <Pressable style={styles.button} onPress={onPressHandler}>
-                <Text>Add new todo</Text>
-            </Pressable> */
-            }
-            <ButtonStyled onPress={onPressHandler} size="$5" theme="active">
-                <TextStyled>Add item</TextStyled>
-            </ButtonStyled>
-        </View>
+    const SignupSchema = Yup.object().shape({
+        name: Yup.string()
+            .min(2, 'Too Short!')
+            .max(50, 'Too Long!')
+            .trim()
+            .required('Please enter your full name'),
+        description: Yup.string()
+            .min(2, 'Too Short!')
+            .max(50, 'Too Long!')
+            .required('Please enter description'),
+        date: Yup.string().required('Required'),
+    });
+
+    return (
+        <Formik
+            initialValues={initialValues}
+            validationSchema={SignupSchema}
+            validateOnChange={false}
+            validateOnBlur={false}
+            onSubmit={(values, { resetForm }) => {
+                onPressHandler(values, { resetForm });
+            }}
+        >
+            {({ values, errors, touched, handleChange, handleSubmit, setFieldTouched, isValid, handleBlur }) => (
+
+                <View style={styles.container}>
+                    <View>
+                        <View>
+                            <TextInputStyled
+                                value={values.name}
+                                placeholder="add todo's name"
+                                onChangeText={handleChange('name') as any}
+                                onBlur={handleBlur('name') as any}
+                            />
+                            {errors.name && (
+                                <Text style={{ color: 'red' }}>{errors.name as any}</Text>
+                            )}
+                        </View>
+                        <TextInputStyled
+                            value={values.description}
+                            placeholder='add description'
+                            onChangeText={handleChange('description') as any}
+                            onBlur={handleBlur('description') as any}
+                        />
+                        {errors.description && (
+                            <Text style={{ color: 'red' }}>{errors.description as any}</Text>
+                        )}
+                        <TextInputStyled
+                            value={values.date}
+                            placeholder='add date'
+                            onChangeText={handleChange('date') as any}
+                            onBlur={handleBlur('date') as any}
+                        />
+                        {errors.date && (
+                            <Text style={{ color: 'red' }}>{errors.date as any}</Text>
+                        )}
+                    </View>
+                    <ButtonStyled onPress={handleSubmit as any} size={'$6'} theme="active">
+                        <TextStyled>Add item</TextStyled>
+                    </ButtonStyled>
+
+                </View>
+            )}
+        </Formik>
     )
 }
 
